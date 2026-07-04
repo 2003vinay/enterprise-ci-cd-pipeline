@@ -38,6 +38,12 @@ jobs:
               export PYTHONPATH=.
               pytest -v --junitxml=test-results.xml
 
+          - name: Upload Test report 
+            uses: actions/upload-artifact@v4
+            with:
+              name: test-report
+              path: test-results.xml
+
           - name: Verify repository
             run: |
              pwd
