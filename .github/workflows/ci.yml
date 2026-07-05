@@ -23,6 +23,12 @@ jobs:
             with:
                 python-version: ${{matrix.python-version}}
 
+          - name: Cache pip packages
+            uses: actions/cache@v4
+            with:
+              path: ~/.cache/pip
+              key: ${{runner.os}}-pip-${{hashFiles('**requirements.txt')}}
+
           - name: Verify python
             run: |
               python --version
