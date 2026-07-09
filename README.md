@@ -41,6 +41,9 @@ M --> N[Start New Container]
 N --> O[Flask Application]
 O --> P[Users]
 ```
+## 📖 Pipeline Overview
+
+Every code change pushed to the `main` branch automatically triggers GitHub Actions. The workflow installs dependencies, executes unit tests, builds a Docker image, publishes it to Docker Hub, and deploys the latest version to an AWS EC2 instance using SSH. This enables continuous integration and continuous deployment with minimal manual intervention.
 
 ## 🚀 Features
 
