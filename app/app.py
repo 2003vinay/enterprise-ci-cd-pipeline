@@ -1,8 +1,9 @@
+import os
 from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-APP_VERSION = "1.1.0"
+APP_VERSION = os.getenv("APP_VERSION", "1.1.0")
 
 @app.route("/")
 def home():
@@ -18,6 +19,14 @@ def health():
 def version():
     return jsonify({
         "version": APP_VERSION
+    }), 200
+
+@app.route("/info")
+def info():
+    return jsonify({
+        "application": "Enterprise CI/CD Pipeline",
+        "version": APP_VERSION,
+        "environment": os.getenv("ENVIRONMENT", "Development")
     }), 200
 
 if __name__ == "__main__":
