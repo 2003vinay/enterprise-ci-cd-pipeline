@@ -15,6 +15,33 @@ The pipeline automatically:
 
 ---
 
+## 🏗️ Architecture
+
+```mermaid
+flowchart TD
+
+A[Developer] -->|git push| B[GitHub Repository]
+
+B --> C[GitHub Actions]
+
+C --> D[Checkout Code]
+D --> E[Setup Python]
+E --> F[Install Dependencies]
+F --> G[Run Unit Tests]
+G --> H[Upload Test Report]
+
+H --> I[Build Docker Image]
+I --> J[Push Image to Docker Hub]
+
+J --> K[AWS EC2]
+K --> L[Pull Latest Docker Image]
+L --> M[Stop Existing Container]
+M --> N[Start New Container]
+
+N --> O[Flask Application]
+O --> P[Users]
+```
+
 ## 🚀 Features
 
 - CI/CD with GitHub Actions
