@@ -2,6 +2,8 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+APP_VERSION = "1.1.0"
+
 @app.route("/")
 def home():
     return "Welcome to Enterprise CI/CD Pipeline!"
@@ -10,7 +12,12 @@ def home():
 def health():
     return jsonify({
         "status": "UP"
-        
+    }), 200
+
+@app.route("/version")
+def version():
+    return jsonify({
+        "version": APP_VERSION
     }), 200
 
 if __name__ == "__main__":
