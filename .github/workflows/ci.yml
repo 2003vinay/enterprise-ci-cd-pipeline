@@ -82,6 +82,6 @@ jobs:
             -e ENVIRONMENT=Production \
             ${{ secrets.DOCKER_USERNAME }}/enterprise-ci-cd:latest
 
-            sleep 10
+            sleep 15
 
             curl --fail http://localhost:5000/heath
