@@ -84,18 +84,4 @@ jobs:
 
             sleep 15
 
-            echo "Checking application..."
-
-            curl -v http://localhost:5000/
-
-            echo ""
-
-            curl -v http://localhost:5000/health
-
-            echo ""
- 
-            sudo docker ps
-
-            echo ""
-
-            sudo docker logs enterprise-app --tail 20
+            curl --fail http://localhost:5000/health
