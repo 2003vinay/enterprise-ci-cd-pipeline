@@ -85,3 +85,6 @@ jobs:
             sleep 15
 
             curl --fail http://localhost:5000/health
+
+            sudo docker image prune -f
+            
