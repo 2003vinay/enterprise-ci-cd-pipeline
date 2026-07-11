@@ -81,3 +81,7 @@ jobs:
             -e APP_VERSION=${{ github.sha }} \
             -e ENVIRONMENT=Production \
             ${{ secrets.DOCKER_USERNAME }}/enterprise-ci-cd:latest
+
+            sleep 10
+
+            curl --fail http://localhost:5000/heath
